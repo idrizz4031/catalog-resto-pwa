@@ -1,12 +1,12 @@
 import CONFIG from "../../globals/config";
 
 const createUIItemResto = (resto) => `
-    <div class="catalog" id="">
-  <img 
-    class="catalog-item" 
-    src="${resto.pictureId ? CONFIG.BASE_IMAGE_URL + resto.pictureId : "https://picsum.photos/id/666/800/450?grayscale"}"
-    alt="${resto.name}"
-    title="${resto.name}"
+    <div class="catalog">
+    <img 
+      class="catalog-item" 
+      src="${resto.pictureId ? CONFIG.BASE_IMAGE_URL + resto.pictureId : "https://picsum.photos/id/666/800/450?grayscale"}"
+      alt="${resto.name}"
+      title="${resto.name}"
     >
     <div tabindex="0" class="rate" aria-label="result">
       <i class="rate-star"></i>
@@ -37,25 +37,25 @@ const createUIDetailItemResto = (resto) => `
   <div>
     <img 
       class="pic-detail" 
-      src="${CONFIF.BASE_IMAGE_URL + resto.results.picrureid}" 
-      alt="${resto.results}">
+      src="${CONFIF.BASE_IMAGE_URL + resto.restaurants.picrureid}" 
+      alt="${resto.restaurants}">
   </div>
   <div class="info-detail">
-      <h2 tabindex="0" class="info-name">${resto.results.name}</h2>
-      <p>${resto.results.address}</p>
+      <h2 tabindex="0" class="info-name">${resto.restaurants.name}</h2>
+      <p>${resto.restaurants.address}</p>
         <div class="city-rating">
           <div tabindex="0" class="city-exp">
-            <p class="exp-city"><i class="to-city">${resto.results.city}</i></p>
+            <p class="exp-city"><i class="to-city">${resto.restaurants.city}</i></p>
           </div>
           <div tabindex="0" class="score-detail">
-            <p class="exp-detail"><i class="to-score">${resto.results.rating}</i></p>
+            <p class="exp-detail"><i class="to-score">${resto.restaurants.rating}</i></p>
           </div>
         </div>
   
       <div class="category">
         <h4>Category:</h4>
           <div class="this.category">
-            ${resto.results.categories.map((categorie) => `
+            ${resto.restaurants.categories.map((categorie) => `
               <span tabindex="0" class="restaurant-categorie">${categorie.name}</span>
             `).join("")}
           </div>
@@ -63,7 +63,7 @@ const createUIDetailItemResto = (resto) => `
 
     <h3 tabindex="0" class="menu-title">Menu Makanan:</h3>
     <div class="menu-list">
-        ${resto.results.menus.foods.map
+        ${resto.restaurants.menus.foods.map
         ((food) => `
           <li>${food.name}</li>
         `).join('')}
@@ -71,7 +71,7 @@ const createUIDetailItemResto = (resto) => `
 
     <h3 tabindex="0" class="menu-title">Menu Minuman:></h3>
     <div class="menu-list">
-        ${resto.results.menus.drinks.map
+        ${resto.restaurants.menus.drinks.map
         ((drink) => `
           <li>${drink.name}</li>
         `).join('')}
@@ -81,10 +81,10 @@ const createUIDetailItemResto = (resto) => `
 
 <div class="desc-part">
   <h2 tabindex="0" class="title-part">Description:</h2>
-  <p tabindex="0" class="pad-part">${resto.results.description}</p>
+  <p tabindex="0" class="pad-part">${resto.restaurants.description}</p>
   <h2 tabindex="0" class="judul-review">Review:</h2>
   <div class="review-resto">
-    ${resto.results.customerReviews.map((review) => `
+    ${resto.restaurants.customerReviews.map((review) => `
       <div class="get-review">
         <div class="all-review">
           <p tabindex="0">${review.name}</p>

@@ -4,7 +4,7 @@ class databaseResto {
     static async homeResto() {
         const response = await fetch(API_ENDPOINT.HOME);
         const responseJson = await response.json();
-        return responseJson.results; //ingat nih
+        return responseJson.restaurants; //ingat nih
     }
 
     static async detailResto(id) {

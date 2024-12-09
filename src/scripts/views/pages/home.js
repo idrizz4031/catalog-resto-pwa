@@ -13,8 +13,7 @@ const Home = {
             <section class="galery">
                 <div class="rec-resto">
                     <h3><u><b tabindex="0">Telusuri Restoran Favorit Anda</b></u></h3>
-                    <div class="catalog" id="RestoData">
-                    </div>
+                    <div class="catalog" id="RestoData"></div>
                 </div>
             </section>
         `;
@@ -26,7 +25,8 @@ const Home = {
         /* const MainBaseContainer = document.querySelector('#MainBase');
         MainBaseContainer.innerHTML += getJumbotron; */
 
-        const ContainerResto = document.querySelector('#resto');
+        const ContainerResto = document.querySelector('#RestoData');
+
         RestoData.forEach((resto) => {
             ContainerResto.innerHTML += createUIItemResto(resto);
         });
